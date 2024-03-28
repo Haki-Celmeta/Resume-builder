@@ -1,0 +1,11 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.profile-container {
+  padding: 2rem;
+
+  .profile-input-container {
+    @include displayFlexCenter(row);
+    margin-top: 0.6rem;
+  }
+}

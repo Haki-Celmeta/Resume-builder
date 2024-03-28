@@ -8,3 +8,10 @@
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
+
+.skills-experience-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1rem 2rem;
+  column-gap: 2rem;
+}

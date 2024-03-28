@@ -1,0 +1,42 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.navbar-container {
+  width: 100%;
+  padding: 1rem 2rem;
+  position: absolute;
+  top: 0;
+  background: transparent;
+
+  ul {
+    @include displayFlexCenter(row);
+    gap: 2rem;
+    list-style-type: none;
+    background: transparent;
+
+    li {
+      div {
+        @include displayFlexCenter(row);
+        background-color: $dark-blue-color;
+        padding: 0.5rem;
+        border: 1px solid black;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        svg {
+          transition: 0.3s ease;
+        }
+      }
+
+      div:hover {
+        background-color: #fff;
+        border: 1px solid black;
+
+        svg {
+          color: $dark-blue-color;
+        }
+      }
+    }
+  }
+}

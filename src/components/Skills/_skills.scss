@@ -1,0 +1,29 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.skills-input-container {
+  .heading-info {
+    width: fit-content;
+  }
+
+  .add-cancel-btns {
+    @include displayFlex(row);
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .rating-container {
+    @include displayFlex(column);
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    
+    label {
+      margin-top: 0.25rem;
+    }
+  }
+
+  .add-skill-btn {
+    width: fit-content;
+  }
+}

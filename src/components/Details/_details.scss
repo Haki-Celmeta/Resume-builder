@@ -1,0 +1,52 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.person-details-container{
+  padding: 5.5rem 2rem 2rem 2rem;
+
+  .details-inputs-container {
+    @include displayFlex(row);
+    justify-content: space-evenly;
+  }
+}
+
+.heading-info {
+  @include displayFlexCenter(row);
+  width: 100%;
+
+  h2 {
+    background-color: $dark-blue-color;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding: 0.5rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+}
+
+.field-input {
+  padding: 0.5rem;
+
+  input {
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 840px) {
+  .person-details-container {
+    .details-inputs-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .person-details-container {
+    .details-inputs-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

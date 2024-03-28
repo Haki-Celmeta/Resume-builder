@@ -1,0 +1,35 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.experiences-input-container {
+  .heading-info {
+    width: fit-content;
+  }
+
+  .experiences {
+    @include displayFlex(column);
+
+    .ex-lab-con {
+      @include displayFlex(row);
+      justify-content: space-around;
+    }
+
+    .employment-date {
+      padding: 1rem 0rem;
+    }
+
+    .add-respon-btn {
+      margin-top: 1rem;
+    }
+
+    .add-cancel-btns {
+      @include displayFlex(row);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .add-experience-btn {
+    width: fit-content;
+  }
+}

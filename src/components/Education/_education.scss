@@ -1,0 +1,28 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.education-input-container {
+  padding: 1rem 2rem;
+
+  .heading-info {
+    width: fit-content;
+  }
+
+  .education-inputs {
+    div:first-child {
+      @include displayFlex(row);
+      gap: 1rem;
+    }
+
+    .education-date {
+      @include displayFlex(row);
+      gap: 1rem;
+      margin: 1rem 0rem;
+    }
+
+    .add-cancel-btns {
+      @include displayFlex(row);
+      gap: 0.5rem;
+    }
+  }
+}
