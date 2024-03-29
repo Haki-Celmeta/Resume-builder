@@ -16,6 +16,10 @@ const App = ({children}) => {
 
   const [skills, setSkills] = useState([]);
 
+  const [experiencies, setExperiencies] = useState([]);
+
+  const [education, setEducation] = useState([]);
+
   return (
     <ResumeContext.Provider 
       value={{
@@ -36,7 +40,11 @@ const App = ({children}) => {
         profile,
         setProfile,
         skills,
-        setSkills
+        setSkills,
+        experiencies,
+        setExperiencies,
+        education,
+        setEducation
       }}>
         {children}
     </ResumeContext.Provider>

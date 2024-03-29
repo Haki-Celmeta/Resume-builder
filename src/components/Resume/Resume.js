@@ -3,8 +3,9 @@ import './_resume.scss';
 import { Slider } from "@mui/material";
 import { ResumeContext } from "../../App";
 
+//TODO: Finish employment and education
 //TODO: Add validation for skills, education and experience
-//TODO: Add maximum number for skills, education and experience
+//TODO: To change the title for employment, education
 
 const Resume = () => {
   const {
@@ -16,8 +17,41 @@ const Resume = () => {
     phoneNumber,
     email,
     profile,
-    skills
+    skills,
+    experiencies,
+    education
   } = useContext(ResumeContext);
+
+  function convertToMonths(num) {
+    switch (num) {
+      case 0:
+        return 'January'
+      case 1:
+        return 'February'
+      case 2:
+        return 'March'
+      case 3:
+        return 'April'
+      case 4:
+        return 'May'
+      case 5:
+        return 'June'
+      case 6:
+        return 'July'
+      case 7:
+        return 'August'
+      case 8:
+        return 'September'
+      case 9:
+        return 'October'
+      case 10:
+        return 'November'
+      case 11:
+        return 'December'
+      default:
+        return 'January'
+    }
+  }
 
   return (
     <div className="resume-cv-container">
@@ -70,55 +104,36 @@ const Resume = () => {
           <div className="employment-his non-det-li">
             <h4>Employment History</h4>
             <div className="jobs-list">
-              <div className="job">
-                <h5>Customer Service Representative, Gold tt, Seattle</h5>
-                <div className="dates">
-                  <span>12 january 2020</span>
-                  <span> - </span>
-                  <span>16 april 2021</span>
+              {experiencies.map(experience => (
+                <div className="job">
+                  <h5>{experience.expTitle}, {experience.expLocation}</h5>
+                  <div className="dates">
+                    <span>{convertToMonths(experience.expFromDate.$M)} {experience.expFromDate.$D} {experience.expFromDate.$y}</span>
+                    <span> - </span>
+                    <span>{convertToMonths(experience.expToDate.$M)} {experience.expToDate.$D} {experience.expToDate.$y}</span>
+                  </div>
+                  <ul>
+                    {experience.expRespon.map(responsibility => (
+                      <li>{responsibility}</li>
+                    ))}
+                  </ul>
                 </div>
-                <ul>
-                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</li>
-                  <li>ut labore et dolore magna aliqua. Facilisis gravida neque convallis a cras semper auctor. Commodo ullamcorper a lacus vestibulum sed arcu non odio.</li>
-                  <li>Blandit massa enim nec dui. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant.</li>
-                  <li> Blandit massa enim nec dui. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Elementum facilisis leo vel fringilla est. Augue interdum velit euismod in pellentesque massa.</li>
-                </ul>
-              </div>
-              <div className="job">
-                <h5>Customer Service Representative, Gold tt, Seattle</h5>
-                <div className="dates">
-                  <span>12 january 2020</span>
-                  <span> - </span>
-                  <span>16 april 2021</span>
-                </div>
-                <ul>
-                  <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</li>
-                  <li>ut labore et dolore magna aliqua. Facilisis gravida neque convallis a cras semper auctor. Commodo ullamcorper a lacus vestibulum sed arcu non odio.</li>
-                  <li>Blandit massa enim nec dui. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant.</li>
-                  <li> Blandit massa enim nec dui. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Elementum facilisis leo vel fringilla est. Augue interdum velit euismod in pellentesque massa.</li>
-                </ul>
-              </div>
+              ))}
             </div>
           </div>
           <div className="education non-det-li">
             <h4>Education</h4>
             <div className="educations">
-              <div className="edu">
-                <h5>Bachelor of Business Informatics, Metropolitan, Tirane</h5>
-                <div className="dates">
-                  <span>12 january 2020</span>
-                  <span> - </span>
-                  <span>16 april 2021</span>
+              {education.map(edu => (
+                <div className="edu">
+                  <h5>{edu.eduTitle}, {edu.eduLocation}</h5>
+                  <div className="dates">
+                    <span>{convertToMonths(edu.eduFromDate.$M)} {edu.eduFromDate.$D} {edu.eduFromDate.$y}</span>
+                    <span> - </span>
+                    <span>{convertToMonths(edu.eduToDate.$M)} {edu.eduToDate.$D} {edu.eduToDate.$y}</span>
+                  </div>
                 </div>
-              </div>
-              <div className="edu">
-                <h5>High School Diploma, Gjimnazi Myslym Keta, Tirane</h5>
-                <div className="dates">
-                  <span>12 january 2020</span>
-                  <span> - </span>
-                  <span>16 april 2021</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

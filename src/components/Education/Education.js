@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import './_education.scss';
 import Input from "../Details/Input";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -7,13 +7,42 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import PrimaryButton from "../../common/PrimaryButton";
 import SecondaryButton from "../../common/SecondaryButton";
 import AddIcon from '@mui/icons-material/Add';
+import { TextField } from "@mui/material";
+import { ResumeContext } from "../../App";
 
 const Education = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [title, setTitle] = useState('');
+  const [location, setLocation] = useState('');
+  const [fromDate, setFromDate] = useState(null);
+  const [toDate, setToDate] = useState(null);
+
+  const {education, setEducation} = useContext(ResumeContext);
+
+  function addEducation() {
+    if(title.length === 0 || fromDate === null || toDate === null) {
+      console.log("not a title");
+    } else {
+      setEducation([
+        ...education,
+        {eduTitle: title, eduLocation: location, eduFromDate: fromDate, eduToDate: toDate}
+      ])
+      handleClick();
+      setTitle('');
+      setLocation('');
+      setFromDate(null);
+      setToDate(null);
+    }
+  }
+
   function handleClick() {
     setIsOpen(!isOpen);
   }
+
+  const handleDateChange = (setter) => (date) => {
+    setter(date);
+  };
 
   return (
     <div className="education-input-container" style={{position: 'relative'}}>
@@ -25,23 +54,33 @@ const Education = () => {
         style={{visibility: isOpen ? 'visible': 'hidden', transition: '0.3s', opacity: isOpen ? 1: 0}}
       >
         <div>
-          <Input className='education-level' label='Education Level' />
-          <Input className='education-location' label='Education Location' />
+          <Input value={title} className='education-level' label='Education Level' onChange={e => setTitle(e.target.value)}/>
+          <Input value={location} className='education-location' label='Education Location' onChange={e => setLocation(e.target.value)}/>
         </div>
         <div className="education-date">
           <div className="from-date">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker label="From" />
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                value={fromDate}
+                label="From"
+                onChange={handleDateChange(setFromDate)}
+                renderInput={(params) => <TextField {...params} />}
+              />
             </LocalizationProvider>
           </div>
           <div className="to-date">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker label="To" />
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                value={toDate}
+                label="To"
+                onChange={handleDateChange(setToDate)}
+                renderInput={(params) => <TextField {...params} />}
+              />
             </LocalizationProvider>
           </div>
         </div>
         <div className="add-cancel-btns">
-          <PrimaryButton onClick={handleClick}>Add</PrimaryButton>
+          <PrimaryButton onClick={addEducation}>Add</PrimaryButton>
           <SecondaryButton onClick={handleClick}>Cancel</SecondaryButton>
         </div>
       </div>
