@@ -1,0 +1,155 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.resume-cv-container {
+  @include displayFlexCenter(row);
+}
+
+.resume-container {
+  margin: 4rem 2rem;
+  width: 595px;
+  height: 842px;
+  border: 1px solid $silver-color;
+  @include displayFlex(row);
+
+  .resume-details {
+    @include displayFlex(column);
+    background-color: rgb(71, 155, 71);
+    color: #fff;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    height: 100%;
+    width: 30%;
+
+    .full-name-proffesion {
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      h4 {
+        font-size: 0.9rem;
+        color: rgb(218, 218, 218);
+      }
+    }
+
+    .details {
+      @include displayFlex(column);
+      gap: 0.5rem;
+
+      h4 {
+        font-weight: 600;
+      }
+
+      ul {
+        list-style-type: none;
+        font-size: 0.8rem;
+        @include displayFlex(column);
+        gap: 0.2rem;
+      }
+    }
+
+    .skills {
+      @include displayFlex(column);
+      gap: 0.5rem;
+
+      h4 {
+        font-weight: 600;
+      }
+
+      ul {
+        list-style-type: none;
+        font-size: 0.8rem;
+        @include displayFlex(column);
+        gap: 0.5rem;
+
+        li {
+          .slider {
+            &::-webkit-slider-thumb {
+              visibility: hidden;
+            }
+
+            &:disabled {
+              background-color: $dark-blue-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .resume-non-details {
+    @include displayFlex(column);
+    gap: 1rem;
+    width: 70%;
+    padding: 2rem 1.5rem;
+
+    .non-det-li {
+      h4 {
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+    }
+
+    .profile {
+      p {
+        font-size: 0.6rem;
+        color: rgb(99, 99, 99);
+      }
+    }
+
+    .employment-his {
+      .jobs-list {
+        @include displayFlex(column);
+        gap: 0.5rem;
+
+        .job {
+          @include displayFlex(column);
+          gap: 0.2rem;
+
+          h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgb(99, 99, 99);
+          }
+
+          .dates {
+            font-size: 0.6rem;
+            color: rgb(134, 134, 134);
+          }
+
+          ul {
+            @include displayFlex(column);
+            gap: 0.1rem;
+            font-size: 0.7rem;
+            margin-left: 1rem;
+            color: rgb(99, 99, 99);
+          }
+        }
+      }
+    }
+
+    .education {
+      .educations {
+        @include displayFlex(column);
+        gap: 0.5rem;
+
+        .edu {
+          @include displayFlex(column);
+          gap: 0.25rem;
+
+          h5 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgb(99, 99, 99);
+          }
+
+          .dates {
+            font-size: 0.6rem;
+            color: rgb(134, 134, 134);
+          }
+        }
+      }
+    }
+  }
+}

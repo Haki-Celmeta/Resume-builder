@@ -5,6 +5,7 @@ import Profile from "../components/Profile/Profile";
 import Skills from "../components/Skills/Skills";
 import Experience from "../components/Experience/Experience";
 import Education from "../components/Education/Education";
+import Resume from "../components/Resume/Resume";
 
 const CreateResume = () => {
   return (
@@ -17,6 +18,7 @@ const CreateResume = () => {
         <Experience />
       </div>
       <Education />
+      <Resume />
     </>
   )
 }
