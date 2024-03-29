@@ -1,10 +1,10 @@
 import React from "react";
 import { TextField } from "@mui/material";
 
-const Input = ({className, label}) => {
+const Input = ({onChange, className, label}) => {
   return (
     <div className={`${className} field-input`}>
-      <TextField id={className} label={label} variant="standard" />
+      <TextField onChange={onChange} id={className} label={label} variant="standard" />
     </div>
   )
 }

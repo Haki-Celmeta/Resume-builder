@@ -5,13 +5,16 @@ import Router from './Router';
 import reportWebVitals from './reportWebVitals';
 import theme from "./theme";
 import { ThemeProvider } from '@mui/material/styles';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <Router />
-    </ThemeProvider>
+    <App>
+      <ThemeProvider theme={theme}>
+        <Router />
+      </ThemeProvider>
+    </App>
   </React.StrictMode>
 );
 

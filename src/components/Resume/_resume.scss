@@ -14,7 +14,7 @@
 
   .resume-details {
     @include displayFlex(column);
-    background-color: rgb(71, 155, 71);
+    background-color: $dark-blue-color;
     color: #fff;
     gap: 1.5rem;
     padding: 2rem 1rem;
@@ -24,11 +24,12 @@
     .full-name-proffesion {
       h3 {
         font-size: 1.1rem;
-        font-weight: 700;
+        font-weight: 800;
+        margin-bottom: 0.25rem;
       }
 
       h4 {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         color: rgb(218, 218, 218);
       }
     }

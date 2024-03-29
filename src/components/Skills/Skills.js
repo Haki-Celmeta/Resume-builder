@@ -1,21 +1,35 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import './_skills.scss';
 import { TextField } from "@mui/material";
 import PrimaryButton from "../../common/PrimaryButton";
 import SecondaryButton from "../../common/SecondaryButton";
 import Rating from '@mui/material/Rating';
 import AddIcon from '@mui/icons-material/Add';
+import { ResumeContext } from "../../App";
 
 const Skills = () => {
-  const [ratingValue, setRatingValue] = useState(1);
+  const [ratingValue, setRatingValue] = useState(3);
   const [isOpen, setIsOpen] = useState(false);
+
+  const [skillTitle, setSkillTitle] = useState('');
+  const {skills, setSkills} = useContext(ResumeContext);
 
   function handleClick() {
     setIsOpen(!isOpen);
   }
 
-  function handleRatingChange(e) {
-    setRatingValue(e.target.value);
+  function addSkill() {
+    if(skillTitle.length === 0) {
+      console.log('no skill title')
+    } else {
+      setSkills([
+        ...skills,
+        {title: skillTitle, rating: ratingValue}
+      ])
+      setSkillTitle('');
+      setRatingValue(3);
+      handleClick();
+    }
   }
 
   function convertRatingToText(rating) {
@@ -48,6 +62,8 @@ const Skills = () => {
       >
         <div className={`skill-title`}>
           <TextField
+            onChange={e => setSkillTitle(e.target.value)}
+            value={skillTitle}
             sx={{ width: '100%', padding: '0px' }}
             helperText="Enter skill title"
             id='skill-title'
@@ -56,11 +72,11 @@ const Skills = () => {
           />
         </div>
         <div className="rating-container">
-          <Rating onChange={handleRatingChange} name="size-medium" defaultValue={3} />
+          <Rating value={ratingValue} onChange={e => setRatingValue(e.target.value)} name="size-medium" defaultValue={3} />
           <label>{ratingText}</label>
         </div>
         <div className="add-cancel-btns">
-          <PrimaryButton onClick={handleClick}>Add</PrimaryButton>
+          <PrimaryButton onClick={addSkill}>Add</PrimaryButton>
           <SecondaryButton onClick={handleClick}>Cancel</SecondaryButton>
         </div>
       </div>
