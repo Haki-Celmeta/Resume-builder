@@ -8,4 +8,14 @@
     @include displayFlexCenter(row);
     margin-top: 0.6rem;
   }
+
+  .save-details-btn {
+    @include displayFlexCenter(row);
+    margin-top: 1rem;
+    width: 100%;
+
+    button {
+      background-color: #7c3030;
+    }
+  }
 }

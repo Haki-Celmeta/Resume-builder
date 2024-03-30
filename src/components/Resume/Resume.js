@@ -1,12 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import './_resume.scss';
 import { Slider } from "@mui/material";
 import { ResumeContext } from "../../App";
 
-//TODO: Add validation for skills, education and experience
-//TODO: To change the title for employment
-//TODO: Make it to download the file
-//TODO: Make the themes
 
 const Resume = () => {
   const {
@@ -21,7 +17,15 @@ const Resume = () => {
     skills,
     experiencies,
     education,
-    theme
+    theme,
+    setFirstName, 
+    setLastName, 
+    setProfession, 
+    setAddress, 
+    setCountry, 
+    setPhoneNumber, 
+    setEmail,
+    setProfile
   } = useContext(ResumeContext);
 
   function convertToMonths(num) {
@@ -54,6 +58,17 @@ const Resume = () => {
         return 'January'
     }
   }
+
+  useEffect(() => {
+    setFirstName(localStorage.getItem('firstName') ? localStorage.getItem('firstName') : '');
+    setLastName(localStorage.getItem('lastName') ? localStorage.getItem('lastName') : '');
+    setProfession(localStorage.getItem('profession') ? localStorage.getItem('profession') : '');
+    setAddress(localStorage.getItem('address') ? localStorage.getItem('address') : '');
+    setCountry(localStorage.getItem('country') ? localStorage.getItem('country') : '');
+    setPhoneNumber(localStorage.getItem('phoneNumber') ? localStorage.getItem('phoneNumber') : '');
+    setEmail(localStorage.getItem('email') ? localStorage.getItem('email') : '');
+    setProfile(localStorage.getItem('profile') ? localStorage.getItem('profile') : '');
+  }, [setAddress, setCountry, setEmail, setFirstName, setLastName, setPhoneNumber, setProfession, setProfile]);
 
   return (
     <div className="resume-cv-container">

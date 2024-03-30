@@ -8,6 +8,16 @@
     @include displayFlex(row);
     justify-content: space-evenly;
   }
+
+  .save-details-btn {
+    @include displayFlexCenter(row);
+    margin-top: 1rem;
+    width: 100%;
+
+    button {
+      background-color: #7c3030;
+    }
+  }
 }
 
 .heading-info {
