@@ -29,6 +29,14 @@
         }
       }
 
+      div.active {
+        background-color: #fff;
+        border: 1px solid black;
+        svg {
+          color: $dark-blue-color;
+        }
+      }
+
       div:hover {
         background-color: #fff;
         border: 1px solid black;

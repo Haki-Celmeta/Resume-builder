@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ErrorPage from "./pages/Error";
 import CreateResume from "./pages/CreateResume";
+import DownloadResume from "./pages/DownloadResume";
+import Themes from "./pages/Themes";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -8,6 +10,14 @@ const Router = () => {
       path: "/Resume-builder/",
       element: <CreateResume />,
       errorElement: <ErrorPage />
+    },
+    {
+      path: "/Resume-builder/Download",
+      element: <DownloadResume />
+    },
+    {
+      path: "/Resume-builder/Themes",
+      element: <Themes />
     }
   ])
 

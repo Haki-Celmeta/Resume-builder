@@ -3,9 +3,10 @@ import './_resume.scss';
 import { Slider } from "@mui/material";
 import { ResumeContext } from "../../App";
 
-//TODO: Finish employment and education
 //TODO: Add validation for skills, education and experience
-//TODO: To change the title for employment, education
+//TODO: To change the title for employment
+//TODO: Make it to download the file
+//TODO: Make the themes
 
 const Resume = () => {
   const {
@@ -19,7 +20,8 @@ const Resume = () => {
     profile,
     skills,
     experiencies,
-    education
+    education,
+    theme
   } = useContext(ResumeContext);
 
   function convertToMonths(num) {
@@ -56,7 +58,7 @@ const Resume = () => {
   return (
     <div className="resume-cv-container">
       <div className="resume-container">
-        <div className="resume-details">
+        <div className="resume-details" style={{backgroundColor: theme ? theme : '#2b3d4f'}}>
           <div className="full-name-proffesion">
             <h3>{firstName} {lastName}</h3>
             <h4>{profession}</h4>

@@ -14,12 +14,12 @@
 
   .resume-details {
     @include displayFlex(column);
-    background-color: $dark-blue-color;
     color: #fff;
     gap: 1.5rem;
     padding: 2rem 1rem;
     height: 100%;
     width: 30%;
+    transition: 0.3s ease;
 
     .full-name-proffesion {
       h3 {

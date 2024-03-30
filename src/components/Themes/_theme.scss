@@ -1,0 +1,82 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.themes-container {
+  @include displayFlexCenter(row);
+  gap: 2rem;
+  padding: 6rem 2rem 0rem 2rem;
+
+  #border-theme1 {
+    border: 3px solid #2b3d4f;
+  }
+
+  #theme1 {
+    background-color: #2b3d4f;
+  }
+
+  #border-theme2 {
+    border: 3px solid #4f2b4a;
+  }
+
+  #theme2 {
+    background-color: #4f2b4a;
+  }
+
+  #border-theme3 {
+    border: 3px solid #2b4f3e;
+  }
+
+  #theme3 {
+    background-color: #2b4f3e;
+  }
+
+  #border-theme4 {
+    border: 3px solid #4e4f2b;
+  }
+
+  #theme4 {
+    background-color: #4e4f2b;
+  }
+
+  #border-theme5 {
+    border: 3px solid #7c3030;
+  }
+
+  #theme5 {
+    background-color: #7c3030;
+  }
+
+  #border-theme6 {
+    border: 3px solid #307c78;
+  }
+
+  #theme6 {
+    background-color: #307c78;
+  }
+
+  .theme-border {
+    @include displayFlexCenter(row);
+    width: 30px;
+    height: 30px;
+    border: 3px solid blue;
+    border-radius: 50%;
+    background: transparent;
+    transition: 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .theme-border.selected {
+    transform: translateY(-10px);
+  }
+
+  .theme-border div {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+  }
+}

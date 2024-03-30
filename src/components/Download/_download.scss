@@ -1,0 +1,30 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.page-downloads-container {
+  @include displayFlexCenter(column);
+  padding: 5.5rem 2rem 0rem 2rem;
+
+  .downloads {
+    @include displayFlex(row);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .download {
+    @include displayFlex(row);
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid $silver-color;
+    padding: 1rem;
+    border-radius: 16px;
+    cursor: pointer;
+    background-color: rgb(72, 72, 202);
+    color: #fff;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

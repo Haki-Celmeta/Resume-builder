@@ -20,6 +20,8 @@ const App = ({children}) => {
 
   const [education, setEducation] = useState([]);
 
+  const [theme, setTheme] = useState('');
+
   return (
     <ResumeContext.Provider 
       value={{
@@ -44,7 +46,9 @@ const App = ({children}) => {
         experiencies,
         setExperiencies,
         education,
-        setEducation
+        setEducation,
+        theme,
+        setTheme
       }}>
         {children}
     </ResumeContext.Provider>
