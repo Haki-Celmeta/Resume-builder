@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Details from "../components/Details/Details";
 import Navbar from "../components/Navbar/Navbar";
 import Profile from "../components/Profile/Profile";
@@ -8,6 +8,10 @@ import Education from "../components/Education/Education";
 import Resume from "../components/Resume/Resume";
 
 const CreateResume = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [])
+
   return (
     <>
       <Navbar />

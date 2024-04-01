@@ -14,6 +14,8 @@ const Experience = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [resString, setResString] = useState('');
 
+  const [titleEmpty, setTitleEmpty] = useState('');
+
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [fromDate, setFromDate] = useState(null);
@@ -22,13 +24,18 @@ const Experience = () => {
   const { experiencies, setExperiencies } = useContext(ResumeContext);
 
   function addExperience() {
-    if (title.length === 0 || fromDate === null || toDate === null) {
-      console.log('Not title placed');
+    if (title.length === 0) {
+      setTitleEmpty('Empty field');
+    } else if (fromDate === null) {
+      console.log('From Date not given');
+    } else if (toDate === null) {
+      console.log('To Date not given');
     } else {
       setExperiencies([
         ...experiencies,
         { expTitle: title, expLocation: location, expFromDate: fromDate, expToDate: toDate, expRespon: responsibilities }
       ])
+      setTitleEmpty('');
       handleClick()
       setTitle('');
       setLocation('');
@@ -65,8 +72,19 @@ const Experience = () => {
         style={{ visibility: isOpen ? 'visible' : 'hidden', transition: '0.3s', opacity: isOpen ? 1 : 0 }}
       >
         <div className="title-location ex-lab-con">
-          <Input value={title} className="employment-title" label="Job Title" onChange={e => setTitle(e.target.value)} />
-          <Input value={location} className="employment-location" label="Job Location" onChange={e => setLocation(e.target.value)} />
+          <Input
+            FormHelperTextProps={{ sx: { color: 'rgb(202, 61, 61)' } }}
+            helperText={titleEmpty ? titleEmpty : ""}
+            value={title}
+            className="employment-title"
+            label="Job Title"
+            onChange={e => setTitle(e.target.value)} />
+          <Input
+            value={location}
+            className="employment-location"
+            label="Job Location"
+            onChange={e => setLocation(e.target.value)}
+          />
         </div>
         <div className="employment-date ex-lab-con">
           <div className="from-date">
@@ -75,7 +93,11 @@ const Experience = () => {
                 value={fromDate}
                 label="From"
                 onChange={handleDateChange(setFromDate)}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                  />
+                )}
               />
             </LocalizationProvider>
           </div>
@@ -85,7 +107,10 @@ const Experience = () => {
                 value={toDate}
                 label="To"
                 onChange={handleDateChange(setToDate)}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => <TextField
+                  {...params}
+                />
+                }
               />
             </LocalizationProvider>
           </div>

@@ -1,0 +1,55 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.download-cta-container {
+  @include displayFlex(column);
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  gap: 2rem;
+  padding: 2rem;
+  background-color:crimson;
+
+  h1 {
+    text-align: right;
+    color: #fff;
+    width: 50%;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  a {
+    width: fit-content;
+  }
+
+  button {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 900px) {
+  .download-cta-container {
+    align-items: center;
+
+    h1 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .download-cta-container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+}

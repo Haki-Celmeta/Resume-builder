@@ -1,10 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect} from "react";
 import './_resume.scss';
 import { Slider } from "@mui/material";
 import { ResumeContext } from "../../App";
 
+//TODO: Make it to download the file
 
 const Resume = () => {
+
   const {
     firstName,
     lastName,

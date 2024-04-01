@@ -10,6 +10,7 @@ import { ResumeContext } from "../../App";
 const Skills = () => {
   const [ratingValue, setRatingValue] = useState(3);
   const [isOpen, setIsOpen] = useState(false);
+  const [skillEmpty, setSkillEmpty] = useState('');
 
   const [skillTitle, setSkillTitle] = useState('');
   const {skills, setSkills} = useContext(ResumeContext);
@@ -19,13 +20,14 @@ const Skills = () => {
   }
 
   function addSkill() {
-    if(skillTitle.length === 0) {
-      console.log('no skill title')
+    if(skillTitle.trim().length === 0) {
+      setSkillEmpty('Type something here');
     } else {
       setSkills([
         ...skills,
         {title: skillTitle, rating: ratingValue}
       ])
+      setSkillEmpty('');
       setSkillTitle('');
       setRatingValue(3);
       handleClick();
@@ -65,7 +67,8 @@ const Skills = () => {
             onChange={e => setSkillTitle(e.target.value)}
             value={skillTitle}
             sx={{ width: '100%', padding: '0px' }}
-            helperText="Enter skill title"
+            FormHelperTextProps={{ sx: { color: 'rgb(202, 61, 61)' } }}
+            helperText={skillEmpty ? skillEmpty : ""}
             id='skill-title'
             label="Skill"
             variant="standard"
@@ -90,7 +93,10 @@ const Skills = () => {
           transition: '0.3s',
           opacity: !isOpen ? 1: 0,
           position: 'absolute',
-          top: '15%'}}>
+          top: '15%',
+          '@media (max-width: 780px)': {
+            top: '25%'
+          }}}>
           <AddIcon fontSize="large" />
         </PrimaryButton>
       </div>

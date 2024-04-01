@@ -1,10 +1,19 @@
 import React from "react";
 import { TextField } from "@mui/material";
 
-const Input = ({value, onChange, className, label}) => {
+const Input = ({ sx, value, onChange, className, label, helperText, FormHelperTextProps}) => {
   return (
     <div className={`${className} field-input`}>
-      <TextField value={value} onChange={onChange} id={className} label={label} variant="standard" />
+      <TextField 
+        sx={sx}
+        FormHelperTextProps={FormHelperTextProps} 
+        helperText={helperText} 
+        value={value} 
+        onChange={onChange} 
+        id={className} 
+        label={label} 
+        variant="standard" 
+      />
     </div>
   )
 }

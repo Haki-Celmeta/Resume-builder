@@ -3,6 +3,7 @@ import ErrorPage from "./pages/Error";
 import CreateResume from "./pages/CreateResume";
 import DownloadResume from "./pages/DownloadResume";
 import Themes from "./pages/Themes";
+import HomePage from "./pages/Home";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const Router = () => {
     {
       path: "/Resume-builder/Themes",
       element: <Themes />
+    },
+    {
+      path: "/Resume-builder/Home",
+      element: <HomePage />
     }
   ])
 

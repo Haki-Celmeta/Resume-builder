@@ -1,0 +1,51 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+
+.hero-section-container {
+  @include displayFlex(column);
+  justify-content: center;
+  gap: 2rem;
+  padding: 6rem 2rem 2rem 2rem;
+  height: 100vh;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: $dark-blue-color;
+    width: 50%;
+  }
+
+  a {
+    width: fit-content;
+  }
+
+  button {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section-container {
+    align-items: center;
+    h1 {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-section-container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+}

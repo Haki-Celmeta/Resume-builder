@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -14,4 +18,11 @@
   grid-template-columns: repeat(2, 1fr);
   padding: 1rem 2rem;
   column-gap: 2rem;
+}
+
+@media (max-width: 780px) {
+  .skills-experience-container {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2rem;
+  }
 }

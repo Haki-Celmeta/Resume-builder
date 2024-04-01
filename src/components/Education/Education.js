@@ -13,21 +13,30 @@ import { ResumeContext } from "../../App";
 const Education = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [titleEmpty, setTitleEmpty] = useState('');
+
   const [title, setTitle] = useState('');
   const [location, setLocation] = useState('');
   const [fromDate, setFromDate] = useState(null);
   const [toDate, setToDate] = useState(null);
 
-  const {education, setEducation} = useContext(ResumeContext);
+  const { education, setEducation } = useContext(ResumeContext);
 
   function addEducation() {
-    if(title.length === 0 || fromDate === null || toDate === null) {
-      console.log("not a title");
+    if (title.trim().length === 0) {
+      setTitleEmpty('Enter education title');
+    } else if (fromDate === null) {
+      setTitleEmpty('');
+      console.log('From date not given');
+    } else if (toDate === null) {
+      setTitleEmpty('');
+      console.log('To date not given');
     } else {
       setEducation([
         ...education,
-        {eduTitle: title, eduLocation: location, eduFromDate: fromDate, eduToDate: toDate}
+        { eduTitle: title, eduLocation: location, eduFromDate: fromDate, eduToDate: toDate }
       ])
+      setTitleEmpty('');
       handleClick();
       setTitle('');
       setLocation('');
@@ -45,21 +54,29 @@ const Education = () => {
   };
 
   return (
-    <div className="education-input-container" style={{position: 'relative'}}>
+    <div className="education-input-container" style={{ position: 'relative' }}>
       <div className="heading-info">
         <h2>Education</h2>
       </div>
-      <div 
+      <div
         className="education-inputs"
-        style={{visibility: isOpen ? 'visible': 'hidden', transition: '0.3s', opacity: isOpen ? 1: 0}}
+        style={{ visibility: isOpen ? 'visible' : 'hidden', transition: '0.3s', opacity: isOpen ? 1 : 0 }}
       >
         <div>
-          <Input value={title} className='education-level' label='Education Level' onChange={e => setTitle(e.target.value)}/>
-          <Input value={location} className='education-location' label='Education Location' onChange={e => setLocation(e.target.value)}/>
+          <Input
+            sx={{ display: 'flex', flexDirection: 'column' }}
+            FormHelperTextProps={{ sx: { color: 'rgb(202, 61, 61)' } }}
+            helperText={titleEmpty ? titleEmpty : ''}
+            value={title}
+            className='education-level'
+            label='Education Level'
+            onChange={e => setTitle(e.target.value)}
+          />
+          <Input value={location} className='education-location' label='Education Location' onChange={e => setLocation(e.target.value)} />
         </div>
         <div className="education-date">
           <div className="from-date">
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 value={fromDate}
                 label="From"
@@ -69,7 +86,7 @@ const Education = () => {
             </LocalizationProvider>
           </div>
           <div className="to-date">
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 value={toDate}
                 label="To"
