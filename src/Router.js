@@ -8,8 +8,8 @@ import HomePage from "./pages/Home";
 const Router = () => {
   const router = createBrowserRouter([
     {
-      path: "/Resume-builder/",
-      element: <CreateResume />,
+      path: "/Resume-builder",
+      element: <HomePage />,
       errorElement: <ErrorPage />
     },
     {
@@ -21,8 +21,8 @@ const Router = () => {
       element: <Themes />
     },
     {
-      path: "/Resume-builder/Home",
-      element: <HomePage />
+      path: "/Resume-builder/Editor",
+      element: <CreateResume />
     }
   ])
 

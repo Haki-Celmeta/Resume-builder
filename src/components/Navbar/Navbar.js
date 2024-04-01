@@ -14,13 +14,13 @@ const Navbar = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/Resume-builder/Home">
-              <div className={location.pathname === '/Resume-builder/Home' ? 'navbar-link active' : 'navbar-link'}><HomeIcon sx={{ color: '#fff' }} /></div>
+            <Link to="/Resume-builder">
+              <div className={location.pathname === '/Resume-builder' ? 'navbar-link active' : 'navbar-link'}><HomeIcon sx={{ color: '#fff' }} /></div>
             </Link>
           </li>
           <li>
-            <Link to="/Resume-builder">
-              <div className={location.pathname === '/Resume-builder' ? 'navbar-link active' : 'navbar-link'}><EditIcon sx={{ color: '#fff' }} /></div>
+            <Link to="/Resume-builder/Editor">
+              <div className={location.pathname === '/Resume-builder/Editor' ? 'navbar-link active' : 'navbar-link'}><EditIcon sx={{ color: '#fff' }} /></div>
             </Link>
           </li>
           <li>

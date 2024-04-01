@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="first-part">
           <AutoAwesomeIcon />
           <ul>
-            <li><Link to="/Resume-builder">Editor</Link></li>
+            <li><Link to="/Resume-builder/Editor">Editor</Link></li>
             <li><Link to="/Resume-builder/Download">Download</Link></li>
             <li><Link to="/Resume-builder/Themes">Themes</Link></li>
           </ul>
