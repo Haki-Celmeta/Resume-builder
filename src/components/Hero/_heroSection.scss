@@ -1,6 +1,11 @@
 @import '../../style/mixins.scss';
 @import '../../style/variable.scss';
 
+#hero-section {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
 .hero-section-container {
   @include displayFlex(column);
   justify-content: center;
